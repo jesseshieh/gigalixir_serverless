@@ -1,6 +1,7 @@
 defmodule GigalixirServerless.Compiler do
   require Logger
 
+  # from https://stackoverflow.com/questions/13223238/how-do-you-create-and-load-modules-dynamically-at-runtime-in-elixir-or-erlang
   def compile(code, id, lock_version) do
     module = Module.concat(GigalixirServerless.RuntimeFunctions, "Data#{id}")
     Logger.debug("Module: #{module}")
