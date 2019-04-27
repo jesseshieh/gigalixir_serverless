@@ -13,14 +13,13 @@ defmodule GigalixirServerlessWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", GigalixirServerlessWeb do
-    pipe_through :browser
-
-    get "/", PageController, :index
-  end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", GigalixirServerlessWeb do
-  #   pipe_through :api
+  # scope "/", GigalixirServerlessWeb do
+  #   pipe_through :browser
   # end
+
+  scope "/api", GigalixirServerlessWeb do
+    pipe_through :api
+
+    post "/", PageController, :index
+  end
 end
